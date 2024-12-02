@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://3eexo4xsdecb"]
+
+[ext_resource type="Texture2D" uid="uid://e6ji8q8bxx0t" path="res://assets/bg2.png" id="2_5m2mx"]
+[ext_resource type="PackedScene" uid="uid://nl07d0iajucx" path="res://scenes/plane.tscn" id="2_82vl0"]
+[ext_resource type="PackedScene" uid="uid://cnu1ublaotp1k" path="res://scenes/building.tscn" id="3_ldpuq"]
+[ext_resource type="Script" path="res://scripts/bomb_manager.gd" id="4_gjgly"]
+[ext_resource type="PackedScene" uid="uid://dgglpf46k5wdn" path="res://scenes/turret.tscn" id="5_bxsay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eji11"]
+size = Vector2(258.264, 258.264)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_82vl0")]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(0.482184, 0.48)
+
+[node name="Map" type="Area2D" parent="."]
+z_index = -5
+
+[node name="Sprite2D" type="Sprite2D" parent="Map"]
+z_index = -5
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(0, -5000)
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(5000, -5000)
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(4999, 0)
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(4999, 5000)
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(-1, 5000)
+texture = ExtResource("2_5m2mx")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Map"]
+modulate = Color(1, 0.435294, 0.447059, 1)
+z_index = -5
+position = Vector2(-1, 5000)
+texture = ExtResource("2_5m2mx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
+z_index = -5
+position = Vector2(-1, 0)
+scale = Vector2(19.36, 19.36)
+shape = SubResource("RectangleShape2D_eji11")
+disabled = true
+
+[node name="BombManager" type="Node" parent="."]
+script = ExtResource("4_gjgly")
+
+[node name="Targets" type="Node" parent="."]
+
+[node name="Building3" parent="Targets" instance=ExtResource("3_ldpuq")]
+position = Vector2(-980.999, 335)
+
+[node name="Building4" parent="Targets" instance=ExtResource("3_ldpuq")]
+position = Vector2(788.998, -633)
+
+[node name="Building2" parent="Targets" instance=ExtResource("3_ldpuq")]
+position = Vector2(1013, 761.002)
+
+[node name="Turret" parent="Targets" instance=ExtResource("5_bxsay")]
+position = Vector2(1522.9, 119.907)
+scale = Vector2(0.297533, 0.297533)
+
+[node name="Building" parent="Targets" instance=ExtResource("3_ldpuq")]
+position = Vector2(-573.109, -516.61)

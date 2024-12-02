@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgglpf46k5wdn"]
+
+[ext_resource type="Script" path="res://scripts/turret.gd" id="1_piy5n"]
+[ext_resource type="Texture2D" uid="uid://0apd7jcewseh" path="res://assets/turret.png" id="2_e213r"]
+[ext_resource type="Texture2D" uid="uid://bvx656oxelx8d" path="res://assets/exclaimation_mark.png" id="3_7qilu"]
+[ext_resource type="Texture2D" uid="uid://ca06bpnui35at" path="res://assets/circular_border.png" id="4_coxng"]
+[ext_resource type="AudioStream" uid="uid://deiora1pjg2w6" path="res://assets/sound/ding.mp3" id="5_h5d2u"]
+
+[node name="Turret" type="Node2D"]
+z_index = 2
+scale = Vector2(0.158787, 0.158787)
+script = ExtResource("1_piy5n")
+
+[node name="Bullseye" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.27525, 0.27525)
+texture = ExtResource("2_e213r")
+
+[node name="Chevron" type="Sprite2D" parent="."]
+z_index = 8
+rotation = 6.28319
+scale = Vector2(0.244262, 0.244262)
+texture = ExtResource("3_7qilu")
+
+[node name="CircularBorder" type="Sprite2D" parent="."]
+position = Vector2(0, -6.29775)
+scale = Vector2(5.1833, 5.1833)
+texture = ExtResource("4_coxng")
+
+[node name="Ding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h5d2u")

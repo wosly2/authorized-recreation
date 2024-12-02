@@ -1,0 +1,230 @@
+[gd_scene load_steps=23 format=3 uid="uid://nl07d0iajucx"]
+
+[ext_resource type="Script" path="res://scripts/plane.gd" id="1_xdtc2"]
+[ext_resource type="Texture2D" uid="uid://b837k7ik5rn8t" path="res://assets/percival/percival1.png" id="2_e8khn"]
+[ext_resource type="PackedScene" uid="uid://cew60ogxi7hhl" path="res://scenes/bomb.tscn" id="2_opbnc"]
+[ext_resource type="Texture2D" uid="uid://bqr43t1o3ayq" path="res://assets/percival/percival2.png" id="3_2elq6"]
+[ext_resource type="Texture2D" uid="uid://biut5dgtcm5vl" path="res://assets/percival/percival3.png" id="4_q682n"]
+[ext_resource type="Texture2D" uid="uid://bm7hdxiy65tg3" path="res://assets/percival/percival4.png" id="5_c158w"]
+[ext_resource type="Texture2D" uid="uid://0gblwylkxwya" path="res://assets/percival/percival.png" id="6_d4g3n"]
+[ext_resource type="Texture2D" uid="uid://clpfywxfr4bh8" path="res://assets/cloud1.png" id="7_tdtcc"]
+[ext_resource type="Texture2D" uid="uid://dc5k2gm323e17" path="res://assets/cloud2.png" id="8_7v7lw"]
+[ext_resource type="Texture2D" uid="uid://evahpbf1chsi" path="res://assets/usaf.png" id="10_vk1yh"]
+[ext_resource type="AudioStream" uid="uid://58jn4esylldf" path="res://assets/sound/plane.mp3" id="11_ldids"]
+[ext_resource type="AudioStream" uid="uid://tsr54tk0f7kl" path="res://assets/sound/chook.mp3" id="12_0goov"]
+[ext_resource type="AudioStream" uid="uid://diqugxxin2ofi" path="res://assets/sound/bomb_out.mp3" id="13_0wrdw"]
+
+[sub_resource type="FontFile" id="FontFile_sf1g4"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_us8hy"]
+default_font = SubResource("FontFile_sf1g4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6jvck"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nhw63"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_neblv"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_7qqax"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ttgxx"]
+font = SubResource("FontFile_7qqax")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q356p"]
+radius = 128.0
+height = 400.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e028f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e8khn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2elq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q682n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c158w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d4g3n")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 24.0
+}]
+
+[node name="Plane" type="CharacterBody2D"]
+z_index = 4
+scale = Vector2(0.48, 0.48)
+script = ExtResource("1_xdtc2")
+bomb_prefab = ExtResource("2_opbnc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.517, 0.966502)
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="GUI" type="Control" parent="Camera2D"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1157.0
+offset_top = -347.0
+offset_right = 1157.0
+offset_bottom = 347.0
+theme = SubResource("Theme_us8hy")
+
+[node name="Debug" type="Label" parent="Camera2D/GUI"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+offset_right = 216.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 40
+text = "DEBUG
+TEXT"
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Camera2D/GUI"]
+show_behind_parent = true
+position = Vector2(1169.09, 37.6802)
+scale = Vector2(2353.32, 84.066)
+mesh = SubResource("BoxMesh_6jvck")
+texture = SubResource("CanvasTexture_nhw63")
+
+[node name="WaterMark" type="Label" parent="Camera2D/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -310.773
+offset_top = 19.3582
+offset_right = -8.77295
+offset_bottom = 50.3582
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "PROPERTY OF USAF"
+label_settings = SubResource("LabelSettings_neblv")
+
+[node name="Cloud2" type="Sprite2D" parent="Camera2D/GUI"]
+position = Vector2(2349.78, 612.131)
+scale = Vector2(1.93423, 1.03466)
+texture = ExtResource("8_7v7lw")
+
+[node name="Altitude" type="Label" parent="Camera2D/GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "ALTIDUDE"
+label_settings = SubResource("LabelSettings_ttgxx")
+
+[node name="Cloud1" type="Sprite2D" parent="Camera2D/GUI"]
+position = Vector2(-68.0144, 170.246)
+scale = Vector2(1.93423, 1.03466)
+texture = ExtResource("7_tdtcc")
+
+[node name="Usaf" type="Sprite2D" parent="Camera2D/GUI"]
+position = Vector2(1954.87, 30.1359)
+scale = Vector2(0.878967, 0.470177)
+texture = ExtResource("10_vk1yh")
+
+[node name="Bombs" type="Label" parent="Camera2D/GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5337
+offset_top = 38.758
+offset_right = 72.4663
+offset_bottom = 79.758
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "BOMBS"
+label_settings = SubResource("LabelSettings_ttgxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, 47.9166)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_q356p")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+z_index = 10
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_e028f")
+animation = &"flying"
+frame_progress = 0.343247
+metadata/_edit_group_ = true
+
+[node name="PlaneSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ldids")
+
+[node name="BombDrop1" type="Node2D" parent="."]
+position = Vector2(-129.167, 12.5)
+
+[node name="BombDrop2" type="Node2D" parent="."]
+position = Vector2(110.417, 14.5833)
+
+[node name="ChookSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_0goov")
+
+[node name="Out" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_0wrdw")

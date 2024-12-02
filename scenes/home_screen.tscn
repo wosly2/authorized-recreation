@@ -1,0 +1,178 @@
+[gd_scene load_steps=15 format=3 uid="uid://dicyx8v27ts7v"]
+
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="1_8jhq5"]
+[ext_resource type="Texture2D" uid="uid://cek31o1t2qxcy" path="res://assets/picture.png" id="1_kacd7"]
+[ext_resource type="AudioStream" uid="uid://c2ctsrnw12lyc" path="res://assets/sound/ride_of_the_valkyries.mp3" id="3_3h3y8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kht3h"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wdvrd"]
+
+[sub_resource type="FontFile" id="FontFile_cdo5p"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_4r38u"]
+default_font = SubResource("FontFile_cdo5p")
+
+[sub_resource type="LabelSettings" id="LabelSettings_stfq7"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wraqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upcar"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwypu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="FontFile" id="FontFile_po3ur"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ms3yv"]
+font = SubResource("FontFile_po3ur")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cje7d"]
+
+[node name="HomeScreen" type="Node2D"]
+
+[node name="White" type="MeshInstance2D" parent="."]
+show_behind_parent = true
+position = Vector2(237, 322)
+scale = Vector2(473, 652.353)
+mesh = SubResource("BoxMesh_kht3h")
+texture = SubResource("CanvasTexture_wdvrd")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 1142.0
+offset_bottom = 639.0
+theme = SubResource("Theme_4r38u")
+
+[node name="WaterMark" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "https://af.mil"
+label_settings = SubResource("LabelSettings_stfq7")
+
+[node name="Link" type="Button" parent="GUI/WaterMark"]
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 31.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_wraqy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upcar")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwypu")
+
+[node name="White2" type="MeshInstance2D" parent="GUI/WaterMark"]
+show_behind_parent = true
+position = Vector2(80.5, 12.544)
+scale = Vector2(187, 57.0882)
+mesh = SubResource("BoxMesh_kht3h")
+texture = SubResource("CanvasTexture_wdvrd")
+
+[node name="Title" type="Label" parent="GUI"]
+layout_mode = 1
+offset_right = 402.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 40
+text = "AUTHORIZED
+RECREATIONAL
+VIDEO
+INTERACTIVE
+ENTERTANMENT
+
+ 
+MODULE 01"
+label_settings = SubResource("LabelSettings_ms3yv")
+
+[node name="Start" type="Button" parent="GUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 166.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cje7d")
+text = "START"
+flat = true
+alignment = 0
+script = ExtResource("1_8jhq5")
+
+[node name="Picture" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(812, 322)
+scale = Vector2(1.372, 1.372)
+texture = ExtResource("1_kacd7")
+
+[node name="Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3h3y8")
+
+[connection signal="pressed" from="GUI/WaterMark/Link" to="GUI/Start" method="_on_link_pressed"]
+[connection signal="pressed" from="GUI/Start" to="GUI/Start" method="_on_pressed"]
